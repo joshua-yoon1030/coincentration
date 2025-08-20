@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://0v0plpbxkskv"]
+
+[ext_resource type="Script" path="res://empty_block.gd" id="1_anpmg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fb5od"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2wgwm"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_anpmg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fb5od")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+modulate = Color(0.488014, 0.291607, 0.0750894, 1)
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_2wgwm")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
