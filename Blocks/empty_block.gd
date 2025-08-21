@@ -7,17 +7,17 @@ extends Area2D
 var clicked := false
 
 func _ready():
-	var rect_shape = collision_shape.shape as RectangleShape2D
-	if rect_shape and texture_a:
-		var rect_size = rect_shape.extents * 2.0 # extents are half-width/height
-		var tex_size = texture_a.get_size()
-		scale = rect_size / tex_size
-	$CollisionShape2D/Sprite2D.texture = texture_a
+	_resize_and_assign(texture_a)
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if not clicked:
-			$CollisionShape2D/Sprite2D.texture = texture_b
-			print("test!~")
+			_resize_and_assign(texture_b)
 		
-	
+
+func _resize_and_assign(tex: Texture2D):
+	$CollisionShape2D/Sprite2D.texture = tex
+	var shape = $CollisionShape2D.shape
+	var target_size = Vector2(shape.extents.x * 2, shape.extents.y * 2)
+	var tex_size = tex.get_size()
+	$CollisionShape2D/Sprite2D.scale = target_size / tex_size

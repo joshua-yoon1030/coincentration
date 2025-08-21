@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://0v0plpbxkskv"]
 
-[ext_resource type="Script" path="res://empty_block.gd" id="1_anpmg"]
-[ext_resource type="Texture2D" uid="uid://d247tqp72ytcq" path="res://brick.png" id="2_ewvc1"]
+[ext_resource type="Script" path="res://Blocks/empty_block.gd" id="1_ok3mm"]
+[ext_resource type="Texture2D" uid="uid://d247tqp72ytcq" path="res://Art_Assets/brick.png" id="2_t6in1"]
+[ext_resource type="Texture2D" uid="uid://6ma1tp80yfqt" path="res://Art_Assets/opened_brick.png" id="3_fuxpv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb5od"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_2wgwm"]
 
 [node name="Area2D" type="Area2D"]
 position = Vector2(405, 380)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_anpmg")
-texture_a = ExtResource("2_ewvc1")
+script = ExtResource("1_ok3mm")
+texture_a = ExtResource("2_t6in1")
+texture_b = ExtResource("3_fuxpv")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,8 +19,6 @@ scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_fb5od")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-modulate = Color(0.488014, 0.291607, 0.0750894, 1)
 scale = Vector2(20, 20)
-texture = SubResource("CanvasTexture_2wgwm")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
