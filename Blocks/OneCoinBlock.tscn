@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://crfy24niakxms"]
+[gd_scene load_steps=11 format=3 uid="uid://crfy24niakxms"]
 
 [ext_resource type="Script" path="res://Blocks/one_coin_block.gd" id="1_hfj2l"]
 [ext_resource type="Texture2D" uid="uid://d247tqp72ytcq" path="res://Art_Assets/brick.png" id="2_0ibta"]
 [ext_resource type="Texture2D" uid="uid://dxgw8nuv4dvgk" path="res://Art_Assets/opened_brick_1.png" id="3_dlwbe"]
+[ext_resource type="Texture2D" uid="uid://cyoa4s3j5gnmc" path="res://Art_Assets/coin.png" id="4_vul3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fb5od"]
 
@@ -22,20 +23,17 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, -30), Vector2(0, -20), Vector2(0, 0), Vector2(0, -20), Vector2(0, -30), Vector2(0, -20), Vector2(0, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_skoef"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D/CoinSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -45), Vector2(0, -55), Vector2(0, -45), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_w4t2w"]
@@ -71,6 +69,33 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -20), Vector2(0, -30), Vector2(0, -20), Vector2(0, 0), Vector2(0, -20), Vector2(0, -30), Vector2(0, -20), Vector2(0, 0), Vector2(0, -20), Vector2(0, -30), Vector2(0, -20), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_skoef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D/CoinSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_amkes"]
 _data = {
 "Collect_1": SubResource("Animation_ssbr4"),
@@ -85,11 +110,14 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_hfj2l")
 texture_a = ExtResource("2_0ibta")
 texture_b = ExtResource("3_dlwbe")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_fb5od")
+
+[node name="CoinSprite" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(0.5125, 0.525)
+texture = ExtResource("4_vul3q")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 scale = Vector2(20, 20)
