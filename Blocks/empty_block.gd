@@ -1,4 +1,4 @@
-extends Area2D
+extends Block
 
 @onready var collision_shape = $CollisionShape2D
 @export var texture_a: Texture2D

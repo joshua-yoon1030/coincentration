@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://coagw4hwkl6lw"]
+
+[ext_resource type="Texture2D" uid="uid://cyoa4s3j5gnmc" path="res://Art_Assets/coin.png" id="1_83ade"]
+[ext_resource type="Texture2D" uid="uid://cgep02qlqgivn" path="res://Art_Assets/coin1.png" id="1_tavm6"]
+[ext_resource type="Texture2D" uid="uid://c1qmiaqu7oj2x" path="res://Art_Assets/coin2.png" id="2_ejwle"]
+[ext_resource type="Texture2D" uid="uid://bmnvbe77j7dke" path="res://Art_Assets/coin3.png" id="3_3rrt0"]
+[ext_resource type="Texture2D" uid="uid://d35xck334a8rk" path="res://Art_Assets/coin4.png" id="4_tgioe"]
+[ext_resource type="Texture2D" uid="uid://6hrggcdigdrt" path="res://Art_Assets/coin5.png" id="5_l233j"]
+[ext_resource type="Texture2D" uid="uid://c2rlu103cks6p" path="res://Art_Assets/coin6.png" id="6_do0o7"]
+[ext_resource type="Texture2D" uid="uid://bfr22luhsrf3n" path="res://Art_Assets/coin7.png" id="7_85fsy"]
+[ext_resource type="Script" path="res://coin.gd" id="9_tt84a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l80f6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_83ade")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_tavm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ejwle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3rrt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tgioe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_l233j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_do0o7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_85fsy")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 10.0
+}]
+
+[node name="Coin" type="AnimatedSprite2D"]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_l80f6")
+animation = &"Spin"
+autoplay = "Spin"
+frame_progress = 0.63819
+script = ExtResource("9_tt84a")
