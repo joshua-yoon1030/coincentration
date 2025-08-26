@@ -103,12 +103,12 @@ metadata/_edit_group_ = true
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_fb5od")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-scale = Vector2(20, 20)
-
 [node name="CoinSprite" type="Sprite2D" parent="CollisionShape2D"]
 scale = Vector2(0.512, 0.522)
 texture = ExtResource("4_vdr4y")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(20, 20)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionShape2D"]
 root_node = NodePath("../..")
