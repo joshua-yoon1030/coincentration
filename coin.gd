@@ -12,7 +12,11 @@ var x_speed = randi()%100 + 100
 var tween_y
 
 var has_stopped = false
+var has_stop_bouncing = false
 var has_checked_cross = false
+var can_check_cross = false
+
+signal coin_done
 
 func init(block: Block):
 	randomize()
@@ -31,6 +35,7 @@ func init(block: Block):
 func handle_y():
 	tween_y = create_tween()
 	tween_y.tween_property($".", "global_position:y", target_y, 5).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	tween_y.finished.connect(func(): has_stop_bouncing = true)
 
 func handle_x(target: float):
 	has_checked_cross = false
@@ -42,6 +47,8 @@ func handle_x(target: float):
 	
 	tween_x.finished.connect(func():
 		if not has_stopped:
+			if(has_stop_bouncing):
+				can_check_cross = true
 			# Continue bouncing to the other edge
 			var next_target = right_bound if (target == left_bound) else left_bound
 			wall_target = next_target
@@ -49,15 +56,17 @@ func handle_x(target: float):
 
 func _process(delta: float) -> void:
 	if has_stopped: return
+	if !can_check_cross: return
 	if has_checked_cross: return
 	
 	if global_position.y == target_y and ((global_position.x <= target_x and wall_target < global_position.x) or (global_position.x >= target_x and wall_target > global_position.x)):
 		has_checked_cross = true
-		if randf() < 0.3:
-			has_stopped = true
-			global_position.x = target_x
-			tween_x.kill()
-			z_index = 0
-			var final_tween = create_tween()
-			final_tween.tween_property($".", "global_position:y", target_y + 100, 0.5)
-			final_tween.finished.connect(func(): queue_free())
+		has_stopped = true
+		global_position.x = target_x
+		tween_x.kill()
+		z_index = 0
+		var final_tween = create_tween()
+		final_tween.tween_property($".", "global_position:y", target_y + 100, 0.5)
+		final_tween.finished.connect(func(): 
+			coin_done.emit()
+			queue_free())

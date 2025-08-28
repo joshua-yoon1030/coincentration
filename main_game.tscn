@@ -1,6 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://7lwsbgbct7dn"]
+[gd_scene load_steps=3 format=3 uid="uid://7lwsbgbct7dn"]
 
 [ext_resource type="Script" path="res://main_game.gd" id="1_eu5p1"]
+[ext_resource type="Texture2D" uid="uid://cgep02qlqgivn" path="res://Art_Assets/coin1.png" id="2_bdxxw"]
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_eu5p1")
+
+[node name="Beginning Hud" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="Beginning Hud"]
+offset_left = 279.0
+offset_top = 248.0
+offset_right = 781.0
+offset_bottom = 353.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Beginning Hud/Panel"]
+offset_left = 58.0
+offset_top = 18.0
+offset_right = 453.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Watch Carefully!"
+
+[node name="ScoreHUD" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="ScoreHUD"]
+offset_left = 413.0
+offset_top = 19.0
+offset_right = 661.0
+offset_bottom = 89.0
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ScoreHUD/Panel"]
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 56.0
+offset_bottom = 54.0
+texture = ExtResource("2_bdxxw")
+
+[node name="Label" type="Label" parent="ScoreHUD/Panel"]
+offset_left = 92.0
+offset_top = -4.0
+offset_right = 134.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 50
+text = "= "
+
+[node name="ScoreLabel" type="Label" parent="ScoreHUD/Panel"]
+offset_left = 163.0
+offset_top = -2.0
+offset_right = 225.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 50
+text = "XX"
