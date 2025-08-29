@@ -85,5 +85,8 @@ func on_coin_done():
 
 func on_block_clicked(num_coin: int):
 	globals.current_coins += num_coin
+	if num_coin == 0:
+		persistent_data.add_score(globals.current_coins)
+		persistent_data.debug_scores()
 	#I need to handle what happens if you click a 0 box, and I need to handle what happens when you click all of them
 	# Need to research into persisitent data in godot
