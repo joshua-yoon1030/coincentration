@@ -36,6 +36,7 @@ offset_right = 131.0
 offset_bottom = 97.0
 theme_override_font_sizes/font_size = 30
 text = "AAAAA"
+metadata/_edit_group_ = true
 
 [node name="Score" type="Label" parent="Panel/ScoresList/1st"]
 layout_mode = 0
@@ -65,10 +66,10 @@ theme_override_font_sizes/font_size = 30
 text = "XX"
 
 [node name="3rd" type="Label" parent="Panel/ScoresList"]
-offset_left = -26.0
-offset_top = 205.0
-offset_right = 135.0
-offset_bottom = 247.0
+offset_left = -29.0
+offset_top = 201.0
+offset_right = 132.0
+offset_bottom = 243.0
 theme_override_font_sizes/font_size = 30
 text = "AAAAA"
 metadata/_edit_group_ = true
@@ -83,12 +84,13 @@ theme_override_font_sizes/font_size = 30
 text = "XX"
 
 [node name="4th" type="Label" parent="Panel/ScoresList"]
-offset_left = -22.0
-offset_top = 275.0
-offset_right = 139.0
-offset_bottom = 317.0
+offset_left = -28.0
+offset_top = 270.0
+offset_right = 133.0
+offset_bottom = 312.0
 theme_override_font_sizes/font_size = 30
 text = "AAAAA"
+metadata/_edit_group_ = true
 
 [node name="Score" type="Label" parent="Panel/ScoresList/4th"]
 layout_mode = 0
@@ -100,10 +102,10 @@ theme_override_font_sizes/font_size = 30
 text = "XX"
 
 [node name="5th" type="Label" parent="Panel/ScoresList"]
-offset_left = -21.0
-offset_top = 339.0
-offset_right = 140.0
-offset_bottom = 381.0
+offset_left = -26.0
+offset_top = 340.0
+offset_right = 135.0
+offset_bottom = 382.0
 theme_override_font_sizes/font_size = 30
 text = "AAAAA"
 metadata/_edit_group_ = true
