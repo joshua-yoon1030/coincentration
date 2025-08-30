@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://HUDs/scoreboard.gd" id="1_nsh4b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2f4j"]
-bg_color = Color(0.603922, 0.607843, 0.537255, 0.227451)
+bg_color = Color(0, 0, 0, 0.227451)
 
 [node name="Scoreboard" type="CanvasLayer"]
 script = ExtResource("1_nsh4b")
@@ -31,100 +31,100 @@ offset_top = 133.0
 offset_right = 154.0
 offset_bottom = 173.0
 
-[node name="1st" type="Label" parent="Panel/ScoresList"]
+[node name="First" type="Label" parent="Panel/ScoresList"]
 layout_mode = 0
 offset_left = -30.0
 offset_top = 60.0
 offset_right = 131.0
 offset_bottom = 97.0
 theme_override_font_sizes/font_size = 30
-text = "AAAAA"
+text = "--------------"
 metadata/_edit_group_ = true
 
-[node name="Score" type="Label" parent="Panel/ScoresList/1st"]
+[node name="Score" type="Label" parent="Panel/ScoresList/First"]
 layout_mode = 0
 offset_left = 518.0
 offset_top = 2.0
 offset_right = 609.0
 offset_bottom = 55.0
 theme_override_font_sizes/font_size = 30
-text = "XX"
+text = "0"
 
-[node name="2nd" type="Label" parent="Panel/ScoresList"]
+[node name="Second" type="Label" parent="Panel/ScoresList"]
 layout_mode = 0
 offset_left = -28.0
 offset_top = 135.0
 offset_right = 133.0
 offset_bottom = 177.0
 theme_override_font_sizes/font_size = 30
-text = "AAAAA"
+text = "--------------"
 metadata/_edit_group_ = true
 
-[node name="Score" type="Label" parent="Panel/ScoresList/2nd"]
+[node name="Score" type="Label" parent="Panel/ScoresList/Second"]
 layout_mode = 0
 offset_left = 518.0
 offset_top = 2.0
 offset_right = 609.0
 offset_bottom = 55.0
 theme_override_font_sizes/font_size = 30
-text = "XX"
+text = "0"
 
-[node name="3rd" type="Label" parent="Panel/ScoresList"]
+[node name="Third" type="Label" parent="Panel/ScoresList"]
 layout_mode = 0
 offset_left = -29.0
 offset_top = 201.0
 offset_right = 132.0
 offset_bottom = 243.0
 theme_override_font_sizes/font_size = 30
-text = "AAAAA"
+text = "--------------"
 metadata/_edit_group_ = true
 
-[node name="Score" type="Label" parent="Panel/ScoresList/3rd"]
+[node name="Score" type="Label" parent="Panel/ScoresList/Third"]
 layout_mode = 0
 offset_left = 518.0
 offset_top = 2.0
 offset_right = 609.0
 offset_bottom = 55.0
 theme_override_font_sizes/font_size = 30
-text = "XX"
+text = "0"
 
-[node name="4th" type="Label" parent="Panel/ScoresList"]
+[node name="Fourth" type="Label" parent="Panel/ScoresList"]
 layout_mode = 0
 offset_left = -28.0
 offset_top = 270.0
 offset_right = 133.0
 offset_bottom = 312.0
 theme_override_font_sizes/font_size = 30
-text = "AAAAA"
+text = "--------------"
 metadata/_edit_group_ = true
 
-[node name="Score" type="Label" parent="Panel/ScoresList/4th"]
+[node name="Score" type="Label" parent="Panel/ScoresList/Fourth"]
 layout_mode = 0
 offset_left = 518.0
 offset_top = 2.0
 offset_right = 609.0
 offset_bottom = 55.0
 theme_override_font_sizes/font_size = 30
-text = "XX"
+text = "0"
 
-[node name="5th" type="Label" parent="Panel/ScoresList"]
+[node name="Fifth" type="Label" parent="Panel/ScoresList"]
 layout_mode = 0
 offset_left = -26.0
 offset_top = 340.0
 offset_right = 135.0
 offset_bottom = 382.0
 theme_override_font_sizes/font_size = 30
-text = "AAAAA"
+text = "--------------"
 metadata/_edit_group_ = true
 
-[node name="Score" type="Label" parent="Panel/ScoresList/5th"]
+[node name="Score" type="Label" parent="Panel/ScoresList/Fifth"]
 layout_mode = 0
 offset_left = 518.0
 offset_top = 2.0
 offset_right = 609.0
 offset_bottom = 55.0
 theme_override_font_sizes/font_size = 30
-text = "XX"
+text = "0"
 
 [node name="Your Score" type="Label" parent="Panel"]
 layout_mode = 0
@@ -160,3 +160,6 @@ offset_bottom = 625.0
 theme_override_font_sizes/font_size = 30
 text = "Main Menu
 "
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

@@ -118,6 +118,7 @@ func on_name_entered(name: String):
 	nameEntry.visible = false
 	scoreboard.init()
 	scoreboard.visible = true
+	scoreHud.visible = false
 func end_game_sequence():
 	for block in blocks:
 		block.input_pickable = false

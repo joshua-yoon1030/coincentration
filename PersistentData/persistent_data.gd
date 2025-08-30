@@ -3,7 +3,7 @@ extends Node2D
 var high_scores: Array = []   # stores { "name": String, "score": int }
 
 const SAVE_PATH := "user://highscores.json"
-const MAX_SCORES := 10  # how many top scores to keep
+const MAX_SCORES := 5  # how many top scores to keep
 
 func _ready():
 	load_scores()
@@ -12,7 +12,6 @@ func _ready():
 
 func add_score(name: String, score: int) -> void:
 	# Add the new score
-	print("is this workign")
 	high_scores.append({"name": name, "score": score})
 
 	# Sort by score descending
