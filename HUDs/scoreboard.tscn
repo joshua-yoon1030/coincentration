@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsex51yogsjgk"]
+[gd_scene load_steps=3 format=3 uid="uid://dsex51yogsjgk"]
+
+[ext_resource type="Script" path="res://HUDs/scoreboard.gd" id="1_nsh4b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2f4j"]
 bg_color = Color(0.603922, 0.607843, 0.537255, 0.227451)
 
 [node name="Scoreboard" type="CanvasLayer"]
+script = ExtResource("1_nsh4b")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 142.0
@@ -48,6 +51,7 @@ theme_override_font_sizes/font_size = 30
 text = "XX"
 
 [node name="2nd" type="Label" parent="Panel/ScoresList"]
+layout_mode = 0
 offset_left = -28.0
 offset_top = 135.0
 offset_right = 133.0
@@ -66,6 +70,7 @@ theme_override_font_sizes/font_size = 30
 text = "XX"
 
 [node name="3rd" type="Label" parent="Panel/ScoresList"]
+layout_mode = 0
 offset_left = -29.0
 offset_top = 201.0
 offset_right = 132.0
@@ -84,6 +89,7 @@ theme_override_font_sizes/font_size = 30
 text = "XX"
 
 [node name="4th" type="Label" parent="Panel/ScoresList"]
+layout_mode = 0
 offset_left = -28.0
 offset_top = 270.0
 offset_right = 133.0
@@ -102,6 +108,7 @@ theme_override_font_sizes/font_size = 30
 text = "XX"
 
 [node name="5th" type="Label" parent="Panel/ScoresList"]
+layout_mode = 0
 offset_left = -26.0
 offset_top = 340.0
 offset_right = 135.0
@@ -136,3 +143,20 @@ offset_right = 614.0
 offset_bottom = 64.0
 theme_override_font_sizes/font_size = 30
 text = "XX"
+
+[node name="PlayAgain" type="Button" parent="."]
+offset_left = 234.0
+offset_top = 544.0
+offset_right = 517.0
+offset_bottom = 631.0
+theme_override_font_sizes/font_size = 30
+text = "Play Again"
+
+[node name="MainMenu" type="Button" parent="."]
+offset_left = 598.0
+offset_top = 544.0
+offset_right = 848.0
+offset_bottom = 625.0
+theme_override_font_sizes/font_size = 30
+text = "Main Menu
+"

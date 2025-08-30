@@ -10,13 +10,13 @@ func _ready():
 	var user_path = ProjectSettings.globalize_path("user://")
 	print("User path is: ", user_path)
 
-func add_score(score: int) -> void:
+func add_score(name: String, score: int) -> void:
 	# Add the new score
 	print("is this workign")
-	high_scores.append(score)
+	high_scores.append({"name": name, "score": score})
 
 	# Sort by score descending
-	high_scores.sort_custom(func(a, b): return a > b)
+	high_scores.sort_custom(func(a, b): return a["score"] > b["score"])
 
 	# Trim to max scores
 	if high_scores.size() > MAX_SCORES:

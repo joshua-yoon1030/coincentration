@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnvco2nb0er2s"]
+
+[ext_resource type="Script" path="res://HUDs/score_hud.gd" id="1_x1253"]
+[ext_resource type="Texture2D" uid="uid://cgep02qlqgivn" path="res://Art_Assets/coin1.png" id="2_apk6x"]
+
+[node name="ScoreHUD" type="CanvasLayer"]
+script = ExtResource("1_x1253")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 413.0
+offset_top = 19.0
+offset_right = 661.0
+offset_bottom = 89.0
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 56.0
+offset_bottom = 54.0
+texture = ExtResource("2_apk6x")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = -4.0
+offset_right = 134.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 50
+text = "= "
+
+[node name="ScoreLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = -2.0
+offset_right = 225.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 50
+text = "XX"

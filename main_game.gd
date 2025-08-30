@@ -1,11 +1,21 @@
 extends Node2D
 
-
+#GOs
 var emptyBlock = preload("res://Blocks/emptyBlock.tscn")
 var oneCoinBlock = preload("res://Blocks/OneCoinBlock.tscn")
 var twoCoinBlock = preload("res://Blocks/TwoCoinBlock.tscn")
 var threeCoinBlock = preload("res://Blocks/ThreeCoinBlock.tscn")
 var coinScene = preload("res://coin.tscn")
+
+#HUDS
+var begHudScene = preload("res://HUDs/beginning_hud.tscn")
+var begHud
+var nameEntryScene = preload("res://HUDs/NameEntry.tscn")
+var nameEntry
+var scoreHudScene = preload("res://HUDs/score_hud.tscn")
+var scoreHud
+var scoreboardHudScene = preload("res://HUDs/scoreboard.tscn")
+var scoreboard
 
 var blocks = []
 
@@ -17,21 +27,35 @@ var opening_cutscene_coins = globals.TOTAL_COINS
 func _ready():
 	globals.current_coins = 0
 	position_setup()
-
+	hud_setup()
 	block_setup()
-	$"ScoreHUD".visible = false
 	await get_tree().create_timer(3).timeout
-	$"Beginning Hud".visible = false
+	begHud.visible = false
 	coin_setup()
-	
-func _process(delta: float):
-	$ScoreHUD/Panel/ScoreLabel.text = str(globals.current_coins)
+
 
 func position_setup():
 	for y in range(200, 601, 200):
 		for x in range(50, 1153, 105):
 			positions.append(Vector2(x, y))
 	positions.shuffle()
+
+func hud_setup():
+	begHud = begHudScene.instantiate()
+	add_child(begHud)
+	
+	scoreHud = scoreHudScene.instantiate()
+	add_child(scoreHud)
+	scoreHud.visible = false
+	
+	nameEntry = nameEntryScene.instantiate()
+	add_child(nameEntry)
+	nameEntry.visible = false
+	nameEntry.name_inputted.connect(on_name_entered)
+	
+	scoreboard = scoreboardHudScene.instantiate()
+	add_child(scoreboard)
+	scoreboard.visible = false
 
 func block_setup():
 	for i in len(positions):
@@ -79,14 +103,21 @@ func on_coin_done():
 	opening_cutscene_coins -= 1
 	if opening_cutscene_coins <= 0:
 		await get_tree().create_timer(1).timeout
-		$"ScoreHUD".visible = true
+		scoreHud.visible = true
 		for block in blocks:
 			block.input_pickable = true
 
 func on_block_clicked(num_coin: int):
 	globals.current_coins += num_coin
 	if num_coin == 0:
-		persistent_data.add_score(globals.current_coins)
-		persistent_data.debug_scores()
-	#I need to handle what happens if you click a 0 box, and I need to handle what happens when you click all of them
-	# Need to research into persisitent data in godot
+		end_game_sequence()
+		await get_tree().create_timer(1).timeout
+		nameEntry.visible = true
+
+func on_name_entered(name: String):
+	nameEntry.visible = false
+	scoreboard.init()
+	scoreboard.visible = true
+func end_game_sequence():
+	for block in blocks:
+		block.input_pickable = false
