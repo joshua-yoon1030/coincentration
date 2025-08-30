@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsex51yogsjgk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2f4j"]
+bg_color = Color(0.603922, 0.607843, 0.537255, 0.227451)
+
+[node name="Scoreboard" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 142.0
+offset_top = -1.0
+offset_right = 1007.0
+offset_bottom = 647.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m2f4j")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 30.0
+offset_right = 550.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 50
+text = "High Scores"
+
+[node name="ScoresList" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_left = 114.0
+offset_top = 133.0
+offset_right = 154.0
+offset_bottom = 173.0
+
+[node name="1st" type="Label" parent="Panel/ScoresList"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 60.0
+offset_right = 131.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 30
+text = "AAAAA"
+
+[node name="Score" type="Label" parent="Panel/ScoresList/1st"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 2.0
+offset_right = 609.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 30
+text = "XX"
+
+[node name="2nd" type="Label" parent="Panel/ScoresList"]
+offset_left = -28.0
+offset_top = 135.0
+offset_right = 133.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 30
+text = "AAAAA"
+metadata/_edit_group_ = true
+
+[node name="Score" type="Label" parent="Panel/ScoresList/2nd"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 2.0
+offset_right = 609.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 30
+text = "XX"
+
+[node name="3rd" type="Label" parent="Panel/ScoresList"]
+offset_left = -26.0
+offset_top = 205.0
+offset_right = 135.0
+offset_bottom = 247.0
+theme_override_font_sizes/font_size = 30
+text = "AAAAA"
+metadata/_edit_group_ = true
+
+[node name="Score" type="Label" parent="Panel/ScoresList/3rd"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 2.0
+offset_right = 609.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 30
+text = "XX"
+
+[node name="4th" type="Label" parent="Panel/ScoresList"]
+offset_left = -22.0
+offset_top = 275.0
+offset_right = 139.0
+offset_bottom = 317.0
+theme_override_font_sizes/font_size = 30
+text = "AAAAA"
+
+[node name="Score" type="Label" parent="Panel/ScoresList/4th"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 2.0
+offset_right = 609.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 30
+text = "XX"
+
+[node name="5th" type="Label" parent="Panel/ScoresList"]
+offset_left = -21.0
+offset_top = 339.0
+offset_right = 140.0
+offset_bottom = 381.0
+theme_override_font_sizes/font_size = 30
+text = "AAAAA"
+metadata/_edit_group_ = true
+
+[node name="Score" type="Label" parent="Panel/ScoresList/5th"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 2.0
+offset_right = 609.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 30
+text = "XX"
+
+[node name="Your Score" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 117.0
+offset_right = 253.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 30
+text = "Your Score: "
+
+[node name="Label" type="Label" parent="Panel/Your Score"]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 9.0
+offset_right = 614.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 30
+text = "XX"
