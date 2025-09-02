@@ -109,6 +109,10 @@ func on_coin_done():
 
 func on_block_clicked(num_coin: int):
 	globals.current_coins += num_coin
+	for i in range(num_coin):
+		SoundManager.block_click()
+		#SoundManager.coin_collect()
+	
 	if num_coin == 0:
 		end_game_sequence()
 		await get_tree().create_timer(1).timeout
