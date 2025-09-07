@@ -35,7 +35,13 @@ func init(block: Block):
 func handle_y():
 	tween_y = create_tween()
 	tween_y.tween_property($".", "global_position:y", target_y, 5).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	tween_y.step_finished.connect(_on_tween_step)
 	tween_y.finished.connect(func(): has_stop_bouncing = true)
+	
+func _on_tween_step():
+	if global_position.y == target_y:
+		print(":test")  # or <, depending on movement
+		SoundManager.coin_collect(1)
 
 func handle_x(target: float):
 	has_checked_cross = false
