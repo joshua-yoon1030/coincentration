@@ -79,7 +79,7 @@ func block_setup():
 		blocks.append(block)
 
 func coin_setup():
-	for i in len(positions):
+	for i in len(positions):#range(1):
 		if i < 8:
 			for j in range(3):
 				var coin = coinScene.instantiate()

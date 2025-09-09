@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpf3k3qta15am"]
+[gd_scene load_steps=6 format=3 uid="uid://dpf3k3qta15am"]
 
 [ext_resource type="AudioStream" uid="uid://c4ucq4ex5il5a" path="res://Sounds/new-notification-014-363678.mp3" id="1_e3707"]
 [ext_resource type="Script" path="res://sound_manager.gd" id="1_n1hp7"]
 [ext_resource type="AudioStream" uid="uid://bh87srymq5y0t" path="res://Sounds/retro-coin-1-236677.mp3" id="2_0cp75"]
+[ext_resource type="AudioStream" uid="uid://cr3y47vgmlml2" path="res://Sounds/Lego Breaking Sound Effect.mp3" id="4_gj0b8"]
+[ext_resource type="AudioStream" uid="uid://n8q1l0begyq4" path="res://Sounds/Video Game Music - Mysterious Cave.mp3" id="5_fyctn"]
 
 [node name="SoundManager" type="Control"]
 layout_mode = 3
@@ -20,3 +22,10 @@ volume_db = 10.0
 
 [node name="coin_collect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0cp75")
+
+[node name="empty_block" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gj0b8")
+
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fyctn")
+autoplay = true

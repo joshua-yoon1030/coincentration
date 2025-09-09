@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://n8q1l0begyq4"
+path="res://.godot/imported/Video Game Music - Mysterious Cave.mp3-4907d53440beaccc0db2ae8f65fe0249.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Video Game Music - Mysterious Cave.mp3"
+dest_files=["res://.godot/imported/Video Game Music - Mysterious Cave.mp3-4907d53440beaccc0db2ae8f65fe0249.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

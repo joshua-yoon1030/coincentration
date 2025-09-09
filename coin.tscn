@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://coagw4hwkl6lw"]
+[gd_scene load_steps=12 format=3 uid="uid://coagw4hwkl6lw"]
 
 [ext_resource type="Texture2D" uid="uid://cyoa4s3j5gnmc" path="res://Art_Assets/coin.png" id="1_83ade"]
 [ext_resource type="Texture2D" uid="uid://cgep02qlqgivn" path="res://Art_Assets/coin1.png" id="1_tavm6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c2rlu103cks6p" path="res://Art_Assets/coin6.png" id="6_do0o7"]
 [ext_resource type="Texture2D" uid="uid://bfr22luhsrf3n" path="res://Art_Assets/coin7.png" id="7_85fsy"]
 [ext_resource type="Script" path="res://coin.gd" id="9_tt84a"]
+[ext_resource type="AudioStream" uid="uid://bh87srymq5y0t" path="res://Sounds/retro-coin-1-236677.mp3" id="10_kqpjh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l80f6"]
 animations = [{
@@ -49,3 +50,7 @@ animation = &"Spin"
 autoplay = "Spin"
 frame_progress = 0.63819
 script = ExtResource("9_tt84a")
+
+[node name="bounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_kqpjh")
+volume_db = -20.0

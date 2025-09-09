@@ -1,6 +1,9 @@
 extends Control
 
+
 func block_click(times: int):
+	if times == 0:
+		$empty_block.play()
 	for i in range(times):
 		$block_click.play()
 		await get_tree().create_timer(0.5).timeout

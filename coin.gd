@@ -10,6 +10,10 @@ var right_bound = 1140
 var tween_x
 var x_speed = randi()%100 + 100
 var tween_y
+var y_speed = randi()%20 + 60
+
+var last_y: float
+var last_velocity := 0.0
 
 var has_stopped = false
 var has_stop_bouncing = false
@@ -33,15 +37,23 @@ func init(block: Block):
 	
 	
 func handle_y():
+	last_y = global_position.y
 	tween_y = create_tween()
-	tween_y.tween_property($".", "global_position:y", target_y, 5).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-	tween_y.step_finished.connect(_on_tween_step)
+	var distance = abs(target_y - global_position.y)
+	var duration = distance / y_speed
+	tween_y.tween_property($".", "global_position:y", target_y, duration).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 	tween_y.finished.connect(func(): has_stop_bouncing = true)
 	
-func _on_tween_step():
-	if global_position.y == target_y:
-		print(":test")  # or <, depending on movement
-		SoundManager.coin_collect(1)
+func handle_bounce_sound(delta: float):
+	if tween_y and tween_y.is_running():
+		# Calculate velocity from position difference
+		var current_velocity = (global_position.y - last_y) / delta
+		last_y = global_position.y
+		
+		 # Detect bounce = velocity changes sign
+		if sign(current_velocity) < 0 and sign(last_velocity) > 0 and abs(last_velocity) > 0.1:
+			$bounce.play()
+		last_velocity = current_velocity
 
 func handle_x(target: float):
 	has_checked_cross = false
@@ -61,6 +73,7 @@ func handle_x(target: float):
 			handle_x(next_target))
 
 func _process(delta: float) -> void:
+	handle_bounce_sound(delta)
 	if has_stopped: return
 	if !can_check_cross: return
 	if has_checked_cross: return
