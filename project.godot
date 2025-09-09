@@ -24,3 +24,8 @@ SoundManager="*res://sound_manager.tscn"
 [display]
 
 window/stretch/mode="canvas_items"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
